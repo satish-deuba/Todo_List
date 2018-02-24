@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body ng-app="something" id="something">
+
+<input type="text" ng-model="sa" id="input">
+
+<div >
+99 bottles of juice on the wall! 99 bottles of juice! Take one down, pass it around... 98 bottles of juice on the wall!
+98 bottles of juice on the wall! 98 bottles of juice! Take one down, pass it around... 97 bottles of juice on the wall!
+
+
+99 bottles of {{input}} juice on the wall! 99 bottles of juice! Take one down, pass it around... 98 bottles of juice on the wall!
+98 bottles of juice on the wall! 98 bottles of juice! Take one down, pass it around... 97 bottles of juice on the wall!
+
+
+2 bottles of juice on the wall! 2 bottles of juice! Take one down, pass it around... 1 bottle of juice on the wall!
+1 bottle of juice on the wall! 1 bottle of juice! Take one down, pass it around... 0 bottles of juice on the wall!
+
+	</div>
+	<script>
+		
+// var num = 99;
+// var bottles = `${num} bottle${num === 1 ? "" : "s"} of juice`;
+// var bottles1;
+
+// while (num >= 1) {
+//     bottles1 = `${num-1} bottle${num-1 === 1 ? "" : "s"} of juice`;
+//     console.log(`${bottles} on the wall! ${bottles}! `
+//         + `Take one down, pass it around... ${bottles1} on the wall!`);
+//     bottles = bottles1;
+//     num--;
+// }
+	
+
+
+var body = document.querySelector("[ng-app]").innerHTML;
+// var attrw = body.getAttribute("ng-app");
+
+var newT = document.querySelector("[ng-model]");
+//console.log(newT);
+
+
+document.addEventListener('DOMContentLoaded', contentLoaded);
+
+function contentLoaded(event) {
+  document.getElementById('input').addEventListener("keyup", keyUp);
+}
+
+function keyUp(event) {
+  calculateNumericOutput();
+}
+
+
+function calculateNumericOutput() {
+  
+  var str = body;
+  body = body.match(/\{\{input\}\}/g);
+
+console.log(body);
+
+str.replace(body[0], "new satish");
+}
+
+
+
+
+	</script>
+</body>
+</html>
+
+

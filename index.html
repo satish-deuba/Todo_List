@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+	<style>
+	.subTaskError {
+		display: block;
+	}
+	.form-group {
+		position: relative;
+	}
+	.subTaskRemove {
+		position: absolute;
+		right: 10px;
+    	top: 8px;
+    	cursor: pointer;
+		display: inline-block;
+	}
+	</style>
+
+</head>
+<body >
+	
+<div class="">
+	
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			
+			<!-- Task Add -->
+			<div class="">
+			<h1>Add Task</h1>
+				<form style="width: 400px;">
+					<div class="">
+						<input type="text" class="form-control" id="title" placeholder="Title" name="">
+						<label class="titleError"></label>
+					</div>
+					
+					<div class="subTask">
+										
+					</div>
+					
+					<button type="button" class="btn btn-default AddMore">+ Add</button>
+<br><br>
+<!-- 
+					<div>
+						<select>
+							<option>Default</option>
+							<option>High</option>
+							<option>Medium</option>
+							<option>Low</option>
+						</select>
+					</div>
+ -->
+					<div>
+						<input type="button" value="Save Task" class="btn btn-default saveTask" id="saveTask" name="">
+					</div>
+
+				</form>
+			</div>
+
+		</div>
+
+
+		
+
+		<div>
+		  
+		  <h1>Tasks</h1>
+		  <div id="new">
+
+				
+
+		  	
+		  </div>
+		  <button type="button" class="btn btn-default"  id="delete"><i class="fa fa-trash-o fa-fw"></i> Delete Selected</button>
+		  <!-- ID NEW -->
+         
+		</div>
+
+
+	</div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript" src="js/todo.js"></script>
+<script>
+
+//var obj = [{ "title" : "satish", "task" : ["i", "2"], "date" : "" } ];
+
+// jQuery(document).ready(function($) {
+
+
+// var TodoListApp = {
+//     "name": "",
+//     "friends": 0,
+//     "messages": [""],
+//     "TaskCount": 0,
+//     Add: function (id) {
+//     	var id1 = id || "#subTask";
+
+// 		$(id1).append('<div><input type="text" class="task" placeholder="Task" name=""><span class="subTaskRemove">X remove</span><label class="subTaskError"></label></div>');
+	  
+// 	   console.log(this); 
+//     },
+//     deleteMessage: function (index) {
+//         // facebookProfile["messages"].splice(index, 1);   
+//     },
+//     addFriend: function () {
+//         facebookProfile.friends += 1; 
+//     },
+//     removeFriend: function () {
+//         facebookProfile.friends -= 1; 
+//     } 
+
+// };
+
+//TodoListApp.Add();
+
+//console.log(TodoListApp.TaskCount);
+
+//$("#addTask").unbind().click(function(e) {
+	//TodoListApp.Add();
+	//console.log(TodoListApp.TaskCount);
+//});
+
+
+// var counter = 0;
+// 	function taskShow(obj, counter, add) {
+
+// 		var appen = "";
+		
+
+//        for(var j = 0; j < obj.length; j++) {
+
+//        		var title = obj[j].title;
+//        		var task  = obj[j].task;
+       		
+
+// 		 	appen += '<div><div><input type="checkbox" name="title" class="checkTitle" data-id="'+j+'" /><span >'+title+'</span></div>	<ul>';
+
+// 			for(var i = 0; i < task.length; i++) {
+
+// 			 	appen += '<li><input type="checkbox" name="task" /> '+ task[i] +'<input type="button" value="delete" /></li>';
+
+// 			}
+        	
+//         	appen += '</ul></div>';
+//         	counter = j;
+//         }
+        
+//         if(add === "add") {
+
+//         	$("#new").html(appen);
+
+//         }else {
+//         	$("#new").html(appen);
+//         }
+       
+        	
+        
+// 	}
+
+
+
+// 	taskShow(obj, counter);
+
+
+
+// 	$("#AddMore").unbind().click(function () {
+// 		$("#subTask").append('<div><input type="text" class="task" placeholder="Task" name=""><span class="subTaskRemove">X remove</span><label class="subTaskError"></label></div>');
+// 	});
+	
+
+// 	$("#addTask").unbind().click(function () {
+
+// 		var title = $("#title").val();
+// 		var task = $(".task");
+// 		var arrTask = [];
+// 		var status = true;
+// 		var titleError = $(".titleError");
+
+
+// 		if(title.length <= 0) {
+// 			titleError.html("Title is empty ");
+// 		}else if(title.length >= 40 ) {
+// 			titleError.html("Title is too long ");
+// 		}else {
+// 			titleError.html("");
+// 		}
+
+// 		for(var i = 0; i < task.length; i++) {
+
+// 			var taskLabelElm = task.eq(i).next().next();
+// 			var taskLabelElmFirst = task.eq(i).next();
+
+// 			if(task.eq(i).val().length <= 0 ) {
+ 				
+//  				if(i === 0) {
+
+//  					taskLabelElmFirst.html("Task is empty");
+
+//  				}else {
+
+//  					taskLabelElm.html("Task is empty");
+
+//  				}
+
+               
+//                status = false;
+// 			}else {
+// 				arrTask.push(task.eq(i).val());				
+// 			}
+
+			
+
+// 		}
+
+
+// 		if(status) {
+
+// 			obj.push({"title": title, "task": arrTask});
+			
+// 			console.log(obj);
+
+// 			taskShow(obj, counter, "add");
+
+// 		}
+
+
+// 	});
+
+// 	$("#delete").unbind().click(function () {
+
+// 		var checkTitle = $(".checkTitle:checked");
+
+// 		for(var i = 0; i < checkTitle.length; i++) {
+
+// 			var id = checkTitle.eq(i).attr("data-id");
+
+// 			obj.splice(id, 1);
+//  			taskShow(obj,counter, "");
+
+// 		}
+
+// 	});
+
+// 	$("#subTask").unbind().on("click", ".subTaskRemove", function () {
+
+// 		$(this).parent().remove();
+
+
+// 	});
+
+
+// 	$("ul li").click(function () {
+// 		var a = $(this).index();
+// 		alert(a);
+// 	});
+
+
+
+// });
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * Programming Quiz: Countdown, Liftoff! (4-3)
+ * 
+ * Using a while loop, print out the countdown output above.
+ */
+
+// your code goes here
+
+// var count = 60;
+// var T = "";
+// while (count >= 0) {
+    
+//     switch(count) {
+//         case 50:
+//            T = "Orbiter transfers from ground to internal power (T-"+count+" seconds)";
+//         break;
+//         case 31:
+//            T = "Ground launch sequencer is go for auto sequence start (T-"+count+" seconds)";
+//         break;
+//         case 16:
+//            T = "Activate launch pad sound suppression system (T-"+count+" seconds)";
+//         break;
+//         case 10:
+//            T = "Activate main engine hydrogen burnoff system (T-"+count+" seconds)";
+//         break;
+//         case 6:
+//            T = "Main engine start (T-"+count+"50 seconds)";
+//         break;
+//         case 0:
+//            T = "Solid rocket booster ignition and liftoff! (T-"+count+" seconds)";
+//         break;
+//         default:
+//            T = "T-"+count+" seconds";
+//     }
+    
+//     console.log(T+"\n");
+
+
+//    count--;
+// }
+
+
+
+// var x = 9;
+// while (x >= 1) {
+//     console.log("hello " + x);
+//     x = x - 1;
+// }
+
+
+// for(var x = 9; x >= 1; ) {
+//      console.log("hello "+ x+"\n");
+//      x = x - 1
+// }
+
+
+// var i = 99;
+// for(var x = 0; x < 26; x++) {
+    
+//     for(var j = i; j < i-3; j++) {
+        
+//         console.log(x+"-"+j);
+        
+//     }
+    
+// }
+
+
+
+// function sayMe(j) {
+
+// 	return function (i) {
+        
+//       return function (u) {
+//            return j*i+u;
+//       }
+
+// 	}
+
+// }
+
+
+// console.log(sayMe(3)(5)(5));
+
+
+/*
+
+Before executing any code javascript moves all function declations are hoisted to the top of its current scope context
+
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var facebookProfile = {
+//     "name": "",
+//     "friends": 0,
+//     "messages": [""],
+//     postMessage: function (message) {
+//         facebookProfile["messages"].push(message);
+//     },
+//     deleteMessage: function (index) {
+//         facebookProfile["messages"].splice(index, 1);   
+//     },
+//     addFriend: function () {
+//         facebookProfile.friends += 1; 
+//     },
+//     removeFriend: function () {
+//         facebookProfile.friends -= 1; 
+//     } 
+
+// };
+
+</script>
+</body>
+</html>
